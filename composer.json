@@ -43,7 +43,7 @@
         "Byume\\GoogleTranslate\\GoogleTranslateServiceProvider"
       ],
       "aliases": {
-        "GoogleTranslate": "Byume\\GoogleTranslate\\GoogleTranslateFacade"
+        "GoogleTranslate": "Byume\\GoogleTranslate\\Facades\\GoogleTranslate"
       }
     }
   },
