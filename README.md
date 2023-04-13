@@ -41,7 +41,7 @@ return [
 
 ## How to use
 
-- After setting up the config file values you are all set to use the following methods :smile:
+- After setting up the config file values you are all set to use the following methods:
 
 - Detecting the language. You can pass both, a single string or an array of multiple strings to it:
 

@@ -6,9 +6,9 @@ namespace Byume\GoogleTranslate\Tests;
 
 use Byume\GoogleTranslate\GoogleTranslate;
 use Byume\GoogleTranslate\GoogleTranslateClient;
+use Mockery;
 use Mockery\MockInterface;
 use Orchestra\Testbench\TestCase as BaseTestCase;
-use Mockery;
 
 abstract class BaseGoogleTranslateTest extends BaseTestCase
 {
