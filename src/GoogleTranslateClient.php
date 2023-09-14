@@ -86,6 +86,12 @@ class GoogleTranslateClient
      */
     private function checkForInvalidConfiguration(array $config): void
     {
+        $isTestMode = $config['test_mode_enabled'] ?? false;
+
+        if ($isTestMode) {
+            return;
+        }
+
         $apiKey = $config['api_key'] ?? null;
 
         if (!$apiKey) {
