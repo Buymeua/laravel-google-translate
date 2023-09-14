@@ -8,6 +8,7 @@ use Byume\GoogleTranslate\Traits\SupportedLanguages;
 use Exception;
 use Google\Cloud\Core\Exception\ServiceException;
 use InvalidArgumentException;
+use Throwable;
 
 class GoogleTranslate
 {
@@ -57,6 +58,27 @@ class GoogleTranslate
         }
 
         return $translations;
+    }
+
+    public function quietTranslate(
+        array|string $input,
+        ?string $from = null,
+        ?string $to = null,
+        string $format = 'text'
+    ): array {
+        try {
+            return $this->translate($input, $from, $to, $format);
+        } catch (Throwable $e) {
+            $translateFrom = $from ?? config('google-translate.default_source_translation');
+            $translateTo = $to ?? config('google-translate.default_target_translation');
+
+            return [
+                'source_text' => $input,
+                'source_language_code' => $translateFrom,
+                'translated_text' => '',
+                'translated_language_code' => $translateTo,
+            ];
+        }
     }
 
     /**
